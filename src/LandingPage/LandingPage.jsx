@@ -300,7 +300,6 @@ const LandingPage = () => {
         {/* Footer */}
         <footer className="bg-black text-gray-500 text-center py-8">
           <p>&copy; {new Date().getFullYear()} Giant Production. All rights reserved.</p>
-          <p className="text-xs mt-2">Designed with passion.</p>
         </footer>
       </div>
     </div>
