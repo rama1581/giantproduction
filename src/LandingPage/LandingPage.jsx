@@ -274,15 +274,15 @@ const LandingPage = () => {
                 <p className="mb-8 text-base md:text-lg text-gray-300">
                   Jangan ragu untuk berbicara dengan kami. Tim kami siap membantu merealisasikan konsep acara Anda menjadi kenyataan yang spektakuler.
                 </p>
-                <a
-                  href="https://wa.me/6281931201945"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative inline-block overflow-hidden rounded-full bg-white px-8 py-3 font-bold text-orange-500 shadow-lg hover:scale-105 transition-transform duration-300 text-sm md:text-base"
-                >
-                  <span className="absolute top-0 left-0 -translate-x-full w-full h-full bg-gradient-to-r from-transparent via-black/20 to-transparent opacity-40 transition-all duration-700 group-hover:translate-x-full" />
-                  Hubungi Kami Sekarang
-                </a>
+              <a
+                href="https://wa.me/6281931201945?text=Halo%20Giant%20Production,%20saya%20tertarik%20dengan%20layanan%20Anda."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative inline-block overflow-hidden rounded-full bg-white px-8 py-3 font-bold text-orange-500 shadow-lg hover:scale-105 transition-transform duration-300 text-sm md:text-base"
+              >
+                <span className="absolute top-0 left-0 -translate-x-full w-full h-full bg-gradient-to-r from-transparent via-black/20 to-transparent opacity-40 transition-all duration-700 group-hover:translate-x-full" />
+                Hubungi Kami Sekarang
+              </a>
               </motion.div>
           </div>
         </section>
