@@ -43,7 +43,6 @@ const AnimatedWords = ({ text, className }) => {
 };
 
 const LandingPage = () => {
-  // --- PENAMBAHAN: LOGIKA UNTUK SPOTLIGHT CURSOR ---
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
@@ -62,7 +61,6 @@ const LandingPage = () => {
   const aboutControls = useAnimation();
   const servicesControls = useAnimation();
   const galleryControls = useAnimation();
-  const contactControls = useAnimation();
 
   useEffect(() => {
     const startAnimation = (controls) => {
@@ -71,8 +69,7 @@ const LandingPage = () => {
     if (activeSection === 'about') startAnimation(aboutControls);
     if (activeSection === 'services') startAnimation(servicesControls);
     if (activeSection === 'gallery') startAnimation(galleryControls);
-    if (activeSection === 'contact') startAnimation(contactControls);
-  }, [activeSection, aboutControls, servicesControls, galleryControls, contactControls]);
+  }, [activeSection, aboutControls, servicesControls, galleryControls]);
 
   const resetAnimation = (controls) => {
     controls.start("hidden");
@@ -89,7 +86,6 @@ const LandingPage = () => {
   };
 
   return (
-    // --- PENAMBAHAN: Style untuk menerima posisi mouse ---
     <div 
       className="font-['Poppins'] text-white overflow-x-hidden relative aurora-background"
       style={{
@@ -97,7 +93,6 @@ const LandingPage = () => {
         '--spotlight-y': `${mousePosition.y}px`,
       }}
     >
-      {/* --- PENAMBAHAN: DIV UNTUK EFEK SPOTLIGHT --- */}
       <div 
         className="pointer-events-none fixed inset-0 z-30 transition duration-300"
         style={{
@@ -105,10 +100,7 @@ const LandingPage = () => {
         }}
       />
       
-      {/* Wrapper Konten Halaman */}
       <div className="relative z-10">
-
-        {/* Navbar */}
         <motion.header 
           initial={{ y: -100 }}
           animate={{ y: 0 }}
@@ -124,7 +116,7 @@ const LandingPage = () => {
               <Link activeClass="text-orange-400" to="about" spy={true} smooth={true} offset={-80} duration={500} className="text-gray-300 hover:text-orange-400 transition-colors duration-300 cursor-pointer" onSetActive={() => setActiveSection('about')} onSetInactive={() => resetAnimation(aboutControls)}>Tentang Kami</Link>
               <Link activeClass="text-orange-400" to="services" spy={true} smooth={true} offset={-80} duration={500} className="text-gray-300 hover:text-orange-400 transition-colors duration-300 cursor-pointer" onSetActive={() => setActiveSection('services')} onSetInactive={() => resetAnimation(servicesControls)}>Layanan</Link>
               <Link activeClass="text-orange-400" to="gallery" spy={true} smooth={true} offset={-80} duration={500} className="text-gray-300 hover:text-orange-400 transition-colors duration-300 cursor-pointer" onSetActive={() => setActiveSection('gallery')} onSetInactive={() => resetAnimation(galleryControls)}>Galeri</Link>
-              <Link activeClass="text-orange-400" to="contact" spy={true} smooth={true} offset={-80} duration={500} className="text-gray-300 hover:text-orange-400 transition-colors duration-300 cursor-pointer" onSetActive={() => setActiveSection('contact')} onSetInactive={() => resetAnimation(contactControls)}>Kontak</Link>
+              <Link activeClass="text-orange-400" to="contact" spy={true} smooth={true} offset={-80} duration={500} className="text-gray-300 hover:text-orange-400 transition-colors duration-300 cursor-pointer">Kontak</Link>
             </nav>
 
             <div className="md:hidden">
@@ -142,15 +134,14 @@ const LandingPage = () => {
             style={{ paddingTop: '80px' }}
           >
             <nav className="flex flex-col items-center space-y-8 py-8 text-lg">
-              <Link onClick={() => setIsMenuOpen(false)} activeClass="text-orange-400" to="about" spy={true} smooth={true} offset={-80} duration={500} className="text-gray-300 hover:text-orange-400 transition-colors duration-300 cursor-pointer" onSetActive={() => setActiveSection('about')} onSetInactive={() => resetAnimation(aboutControls)}>Tentang Kami</Link>
-              <Link onClick={() => setIsMenuOpen(false)} activeClass="text-orange-400" to="services" spy={true} smooth={true} offset={-80} duration={500} className="text-gray-300 hover:text-orange-400 transition-colors duration-300 cursor-pointer" onSetActive={() => setActiveSection('services')} onSetInactive={() => resetAnimation(servicesControls)}>Layanan</Link>
-              <Link onClick={() => setIsMenuOpen(false)} activeClass="text-orange-400" to="gallery" spy={true} smooth={true} offset={-80} duration={500} className="text-gray-300 hover:text-orange-400 transition-colors duration-300 cursor-pointer" onSetActive={() => setActiveSection('gallery')} onSetInactive={() => resetAnimation(galleryControls)}>Galeri</Link>
-              <Link onClick={() => setIsMenuOpen(false)} activeClass="text-orange-400" to="contact" spy={true} smooth={true} offset={-80} duration={500} className="text-gray-300 hover:text-orange-400 transition-colors duration-300 cursor-pointer" onSetActive={() => setActiveSection('contact')} onSetInactive={() => resetAnimation(contactControls)}>Kontak</Link>
+              <Link onClick={() => setIsMenuOpen(false)} activeClass="text-orange-400" to="about" spy={true} smooth={true} offset={-80} duration={500} className="text-gray-300 hover:text-orange-400 transition-colors duration-300 cursor-pointer">Tentang Kami</Link>
+              <Link onClick={() => setIsMenuOpen(false)} activeClass="text-orange-400" to="services" spy={true} smooth={true} offset={-80} duration={500} className="text-gray-300 hover:text-orange-400 transition-colors duration-300 cursor-pointer">Layanan</Link>
+              <Link onClick={() => setIsMenuOpen(false)} activeClass="text-orange-400" to="gallery" spy={true} smooth={true} offset={-80} duration={500} className="text-gray-300 hover:text-orange-400 transition-colors duration-300 cursor-pointer">Galeri</Link>
+              <Link onClick={() => setIsMenuOpen(false)} activeClass="text-orange-400" to="contact" spy={true} smooth={true} offset={-80} duration={500} className="text-gray-300 hover:text-orange-400 transition-colors duration-300 cursor-pointer">Kontak</Link>
             </nav>
           </motion.div>
         </motion.header>
 
-        {/* Hero Section */}
         <section 
           id="hero" 
           className="h-screen w-full relative flex items-center justify-center bg-cover bg-center"
@@ -159,10 +150,7 @@ const LandingPage = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
           <div className="relative z-10 text-center px-4">
             <AnimatedWords text="Elevating Moments Creating Memories" className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-white drop-shadow-lg flex flex-wrap justify-center" />
-            <motion.p 
-              initial={{opacity: 0}} animate={{opacity: 1}} transition={{delay: 1.5, duration: 0.8}}
-              className="mt-6 text-base md:text-xl text-gray-200 max-w-lg md:max-w-2xl mx-auto font-light"
-            >
+            <motion.p initial={{opacity: 0}} animate={{opacity: 1}} transition={{delay: 1.5, duration: 0.8}} className="mt-6 text-base md:text-xl text-gray-200 max-w-lg md:max-w-2xl mx-auto font-light">
               Giant Production: Solusi event organizer premium untuk setiap acara tak terlupakan Anda.
             </motion.p>
             <motion.div initial={{opacity: 0}} animate={{opacity: 1}} transition={{delay: 1.8, duration: 0.8}}>
@@ -179,7 +167,6 @@ const LandingPage = () => {
           </motion.div>
         </section>
 
-        {/* Tentang Kami */}
         <section id="about" className="py-20 md:py-32 bg-[#111111]">
           <motion.div 
             className="max-w-6xl mx-auto px-4 sm:px-6 grid md:grid-cols-2 gap-10 md:gap-16 items-center"
@@ -203,62 +190,62 @@ const LandingPage = () => {
           </motion.div>
         </section>
 
-        {/* Layanan */}
         <section id="services" className="py-20 md:py-32 bg-[#0a0a0a] text-center">
-          <motion.div 
-            className="max-w-6xl mx-auto px-4 sm:px-6"
-            initial="hidden"
-            animate={servicesControls}
-            variants={containerVariants}
-          >
-            <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Layanan <span className="text-orange-500">Premium</span> Kami
-            </motion.h2>
-            <motion.p variants={itemVariants} className="text-gray-400 mb-12 md:mb-16 max-w-2xl mx-auto text-base md:text-lg">
-              Kami menyediakan solusi menyeluruh untuk memastikan acara Anda berjalan lancar dan spektakuler.
-            </motion.p>
             <motion.div 
+              className="max-w-6xl mx-auto px-4 sm:px-6"
+              initial="hidden"
+              animate={servicesControls}
               variants={containerVariants}
-              className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-6"
             >
-              {[
-                { title: "Event Konser", desc: "Produksi panggung, suara, dan pencahayaan skala besar.", icon: <FaMusic className="text-3xl text-orange-400" />, area: "md:col-span-2" },
-                { title: "Wedding Organizer", desc: "Merancang hari bahagia Anda dengan sentuhan elegan dan personal.", icon: <FaRing className="text-3xl text-orange-400" />, area: "" },
-                { title: "Corporate Events", desc: "Gala dinner, peluncuran produk, hingga konferensi profesional.", icon: <FaBriefcase className="text-3xl text-orange-400" />, area: "md:col-span-3" }
-              ].map((service) => (
-                <motion.div
-                  key={service.title}
-                  variants={itemVariants}
-                  className={`group relative overflow-hidden bg-gradient-to-br from-white/5 to-white/0 p-8 rounded-2xl border border-white/10 text-left cursor-pointer ${service.area}`}
-                >
-                  <div className="absolute top-0 left-0 w-full h-full bg-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="relative z-10">
-                    <div className="mb-4">{service.icon}</div>
-                    <h3 className="text-2xl font-bold text-white mb-3">{service.title}</h3>
-                    <p className="text-gray-300 font-light">{service.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
+              <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl font-bold text-white mb-4">
+                Layanan <span className="text-orange-500">Premium</span> Kami
+              </motion.h2>
+              <motion.p variants={itemVariants} className="text-gray-400 mb-12 md:mb-16 max-w-2xl mx-auto text-base md:text-lg">
+                Kami menyediakan solusi menyeluruh untuk memastikan acara Anda berjalan lancar dan spektakuler.
+              </motion.p>
+              <motion.div 
+                variants={containerVariants}
+                className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-6"
+              >
+                {[
+                  { title: "Event Konser", desc: "Produksi panggung, suara, dan pencahayaan skala besar.", icon: <FaMusic className="text-3xl text-orange-400" />, area: "md:col-span-2" },
+                  { title: "Wedding Organizer", desc: "Merancang hari bahagia Anda dengan sentuhan elegan dan personal.", icon: <FaRing className="text-3xl text-orange-400" />, area: "" },
+                  { title: "Corporate Events", desc: "Gala dinner, peluncuran produk, hingga konferensi profesional.", icon: <FaBriefcase className="text-3xl text-orange-400" />, area: "md:col-span-3" }
+                ].map((service) => (
+                  <motion.div
+                    key={service.title}
+                    variants={itemVariants}
+                    className={`group relative overflow-hidden bg-gradient-to-br from-white/5 to-white/0 p-8 rounded-2xl border border-white/10 text-left cursor-pointer ${service.area}`}
+                  >
+                    <div className="absolute top-0 left-0 w-full h-full bg-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="relative z-10">
+                      <div className="mb-4">{service.icon}</div>
+                      <h3 className="text-2xl font-bold text-white mb-3">{service.title}</h3>
+                      <p className="text-gray-300 font-light">{service.desc}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
             </motion.div>
-          </motion.div>
         </section>
         
-        {/* Galeri */}
         <section id="gallery" className="py-20 md:py-32 bg-[#111111]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+          <motion.div 
+            className="max-w-7xl mx-auto px-4 sm:px-6 text-center"
+            initial="hidden"
+            animate={galleryControls}
+            variants={containerVariants}
+          >
             <motion.h2 
-              initial={{opacity: 0}}
-              animate={galleryControls}
-              transition={{delay: 0.2}}
+              variants={itemVariants}
               className="text-3xl md:text-4xl font-bold text-white mb-12 md:mb-16"
             >
               Momen yang <span className="text-orange-500">Kami Ciptakan</span>
             </motion.h2>
+            
             <motion.div 
-              className="columns-1 sm:columns-2 md:columns-3 gap-6 space-y-6"
-              initial="hidden"
-              animate={galleryControls}
               variants={containerVariants}
+              className="columns-1 sm:columns-2 md:columns-3 gap-6 space-y-6"
             >
               {["g1.jpg", "g2.jpg", "g3.jpg", "g4.jpg", "g5.jpg", "g6.jpg"].map((img) => (
                 <motion.div 
@@ -266,20 +253,21 @@ const LandingPage = () => {
                   variants={itemVariants}
                   className="overflow-hidden rounded-xl shadow-lg group border-2 border-transparent hover:border-orange-500/50 transition-all duration-300"
                 >
-                  <img src={`/${img}`} alt={`Galeri Acara`} className="w-full h-auto object-cover transform group-hover:scale-110 transition-transform duration-500 ease-in-out" />
+                  <img src={`/${img}`} alt={`Galeri Acara ${img}`} className="w-full h-auto object-cover transform group-hover:scale-110 transition-transform duration-500 ease-in-out" />
                 </motion.div>
               ))}
             </motion.div>
-          </div>
+          </motion.div>
         </section>
 
-        {/* CTA */}
         <section id="contact" className="py-20 md:py-24 bg-cover bg-center" style={{ backgroundImage: `url('/cta-bg.jpg')` }}>
           <div className="bg-black/80 py-16 md:py-20">
               <motion.div 
                 className="max-w-3xl mx-auto px-4 sm:px-6 text-center"
                 initial="hidden"
-                animate={contactControls}
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.8 }}
                 variants={itemVariants}
               >
                 <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Wujudkan Acara Impian Anda</h2>
@@ -288,6 +276,8 @@ const LandingPage = () => {
                 </p>
                 <a
                   href="https://wa.me/6281931201945"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group relative inline-block overflow-hidden rounded-full bg-white px-8 py-3 font-bold text-orange-500 shadow-lg hover:scale-105 transition-transform duration-300 text-sm md:text-base"
                 >
                   <span className="absolute top-0 left-0 -translate-x-full w-full h-full bg-gradient-to-r from-transparent via-black/20 to-transparent opacity-40 transition-all duration-700 group-hover:translate-x-full" />
@@ -297,7 +287,6 @@ const LandingPage = () => {
           </div>
         </section>
 
-        {/* Footer */}
         <footer className="bg-black text-gray-500 text-center py-8">
           <p>&copy; {new Date().getFullYear()} Giant Production. All rights reserved.</p>
         </footer>
